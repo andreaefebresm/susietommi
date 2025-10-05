@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Susi & Tommi — 16 Maggio 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff; --text:#1f2328; --muted:#6f7780; --accent:#5e6a55; --accent-2:#8aa388; --line:#e9ecef; --soft:#f6f7f5; --max:1120px;
+      --r:22px; --r-lg:28px; --shadow:0 10px 28px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;letter-spacing:.01em}
+    img{max-width:100%;display:block;border-radius:var(--r);object-fit:cover}
+
+    /* Typography */
+    h1,h2,h3{font-family:"Cormorant Garamond",serif;line-height:1.1}
+    h1{font-size:clamp(2.6rem,1.4rem + 3.6vw,4.2rem);font-weight:600;letter-spacing:.02em}
+    h2{font-size:clamp(1.9rem,1.1rem + 2vw,2.6rem);font-weight:600;margin-bottom:.6rem}
+    h3{font-size:1.25rem}
+    p{color:var(--muted);margin:.35rem 0 1rem}
+    .lead{font-size:1.1rem;color:#3b3f45}
+    .kicker{display:inline-block;margin-bottom:.6rem;padding:.35rem .6rem;border-radius:999px;background:var(--soft);color:#415042;font-weight:600;font-size:.85rem;letter-spacing:.06em}
+
+    /* Layout */
+    .container{max-width:var(--max);margin:0 auto;padding:0 28px}
+    section{padding:84px 0}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:64px}
+    @media(max-width:900px){.row{grid-template-columns:1fr;text-align:center}}
+
+    /* Subtle section divider like Squarespace */
+    main > section:not(:first-child){border-top:1px solid var(--line)}
+    main > section > h2{position:relative;padding-top:26px}
+    main > section > h2::after{content:"";display:block;width:56px;height:2px;background:var(--accent);margin:.6rem 0 1rem}
+    @media(max-width:900px){main > section > h2::after{margin:.6rem auto 1rem}}
+
+    /* Header */
+    header{position:fixed;inset:0 0 auto 0;height:70px;display:flex;align-items:center;justify-content:flex-end;padding:0 40px;background:transparent;transition:color .35s;z-index:10;color:#fff}
+    header.scrolled{color:#1f2328}
+    header nav{display:flex;gap:16px}
+    header nav a{color:inherit;font-weight:500;text-decoration:none;position:relative;padding:6px 2px}
+    header nav a::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:currentColor;transition:width .25s ease}
+    header nav a:hover::after{width:100%}
+
+    /* Hero */
+    .hero{min-height:90vh;display:grid;place-items:center;text-align:center;background:url('https://images.unsplash.com/photo-1529634892273-4f9cc89ff9a2?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;color:#fff;position:relative}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}
+    .hero-content{position:relative;z-index:1}
+    .hero .date{font-size:1.05rem;color:#f3f5f2;margin-top:.5rem}
+
+    /* Images */
+    .frame{border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+    .warm-filter{filter:brightness(1.05) contrast(1.08) saturate(1.06) sepia(.05);transition:filter .45s ease}
+    .warm-filter:hover{filter:brightness(1.08) contrast(1.12) saturate(1.1) sepia(.07)}
+
+    /* Clean content blocks (no white cards) */
+    .block{display:grid;gap:.35rem}
+    .block strong{color:#2f343a}
+
+    /* Links as soft pills / subtle */
+    .link-pill{display:inline-block;margin:.25rem .5rem .25rem 0;padding:10px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#2f343a}
+    .link-pill:hover{border-color:#d9dedf}
+
+    /* Button minimal */
+    .btn{appearance:none;border:1px solid var(--line);background:#fff;color:#2f343a;border-radius:12px;padding:10px 14px;font-weight:600;cursor:pointer}
+    .btn:hover{border-color:#d5dadc}
+
+    footer{text-align:center;border-top:1px solid var(--line);padding:40px 0;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header id="header">
+    <nav>
+      <a href="#cerimonia">Cerimonia</a>
+      <a href="#ricevimento">Ricevimento</a>
+      <a href="#parcheggi">Parcheggi</a>
+      <a href="#regalo">Regalo</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Susi & Tommi</h1>
+      <p class="date">Sabato 16 Maggio 2026</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="cerimonia" class="row">
+      <div>
+        <h2>Cerimonia</h2>
+        <div class="card">
+          <p><strong>Ore 10:30</strong></p>
+          <p><strong>Basilica Santa Maria Nuova</strong><br>Via Giuseppe Borsani, Abbiategrasso (MI)</p>
+          <p>Vi consigliamo di arrivare qualche minuto prima 😊</p>
+        </div>
+      </div>
+      <img src="A_2f010-00108_IMG-0000186280.jpg" alt="Basilica Santa Maria Nuova" class="warm-filter">
+    </section>
+
+    <section id="ricevimento" class="row">
+      <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=1600&auto=format&fit=crop" alt="Cascina Pietrasanta">
+      <div>
+        <h2>Ricevimento</h2>
+        <div class="card">
+          <p><strong>Cascina Pietrasanta</strong><br>Magenta — Frazione Ponte Vecchio (MI)</p>
+          <p>Dopo la cerimonia ci sposteremo qui per festeggiare insieme tra natura, brindisi e musica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="parcheggi">
+      <h2>Parcheggi</h2>
+      <div class="card">
+        <p>Ecco i parcheggi più comodi per la chiesa:</p>
+        <p><a target="_blank" href="https://maps.app.goo.gl/c7kDXMc5uR92ogPw6?g_st=aw">Mappa generale ↗</a></p>
+        <p><a target="_blank" href="https://maps.app.goo.gl/DkFLCp6Mf2wqPwND8?g_st=aw">Parcheggio Piazza Cavour ↗</a></p>
+        <p><a target="_blank" href="https://maps.app.goo.gl/P6af4Sk8ebfu78jq5?g_st=aw">Parcheggio Piazza Mercato ↗</a></p>
+      </div>
+    </section>
+
+    <section id="regalo" class="row">
+      <div>
+        <h2>Regalo</h2>
+        <div class="card">
+          <p>Il vostro affetto è per noi il dono più grande. Se desiderate contribuire al nostro sogno, useremo il vostro pensiero per il <strong>viaggio di nozze</strong>.</p>
+          <p><span class="pill">IBAN</span><br><strong id="iban">IT27H0310432380000000400112</strong></p>
+          <button class="btn" id="copy">Copia IBAN</button>
+          <p style="margin-top:10px">Intestatari: <strong>Susi & Tommi</strong><br><small>Causale: “Viaggio di nozze Susi e Tommi”</small></p>
+        </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="Viaggio di nozze">
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Susi & Tommi — Grazie per condividere questo giorno con noi ♥</p>
+  </footer>
+
+  <script>
+    document.getElementById('copy').addEventListener('click', async ()=>{
+      const iban=document.getElementById('iban').innerText;
+      try{await navigator.clipboard.writeText(iban);alert('IBAN copiato!');}catch{alert('Copia non riuscita, seleziona e copia manualmente.');}
+    });
+
+    // Cambia colore del testo header su scroll
+    const header=document.getElementById('header');
+    window.addEventListener('scroll',()=>{
+      if(window.scrollY>100){header.classList.add('scrolled');}
+      else{header.classList.remove('scrolled');}
+    });
+  </script>
+</body>
+</html>
