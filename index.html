@@ -38,6 +38,10 @@
     .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:36px}
     .gallery-grid img{height:280px;width:100%;object-fit:cover;box-shadow:var(--shadow)}
 
+    .form-embed{margin-top:32px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
+    .form-embed iframe{display:block;width:100%;height:720px;border:0}
+    @media(max-width:700px){.form-embed iframe{height:860px}}
+
     /* Subtle section divider like Squarespace */
     main > section:not(:first-child){border-top:1px solid var(--line)}
     main > section > h2{position:relative;padding-top:26px}
@@ -85,6 +89,7 @@
       <a href="#ricevimento">Ricevimento</a>
       <a href="#parcheggi">Parcheggi</a>
       <a href="#regalo">Regalo</a>
+      <a href="#rsvp">RSVP</a>
     </nav>
   </header>
 
@@ -142,6 +147,16 @@
         </div>
       </div>
       <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(5).jpeg" alt="Viaggio di nozze">
+    </section>
+
+    <section id="rsvp">
+      <h2>RSVP</h2>
+      <p class="lead">Confermate la vostra presenza compilando il modulo qui sotto. Ci aiuterà a organizzare al meglio la giornata.</p>
+      <div class="form-embed">
+        <!-- Sostituisci l'URL qui sotto con il link di incorporamento del tuo Google Form (Invia → incorpora HTML) -->
+        <iframe src="https://docs.google.com/forms/d/e/INSERISCI_ID_DEL_MODULO/viewform?embedded=true" title="Modulo di conferma presenze" loading="lazy">Caricamento…</iframe>
+      </div>
+      <p style="margin-top:18px;font-size:.95rem">Per aggiornare il modulo: apri il tuo Google Form, clicca su <strong>Invia</strong>, scegli l'icona &lt;&gt;, copia l'URL nell'attributo <code>src</code> qui sopra e sostituisci <code>INSERISCI_ID_DEL_MODULO</code>.</p>
     </section>
 
     <section id="ricordi">
