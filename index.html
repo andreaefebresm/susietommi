@@ -35,27 +35,33 @@
     @media(max-width:1100px){.map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:700px){.map-grid{grid-template-columns:1fr}}
 
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:36px}
-    .gallery-grid img{height:280px;width:100%;object-fit:cover;box-shadow:var(--shadow)}
+    .slider{position:relative;margin-top:36px}
+    .slider-window{overflow:hidden;border-radius:var(--r-lg);box-shadow:var(--shadow)}
+    .slider-track{display:flex;transition:transform .45s ease;will-change:transform}
+    .slide{flex:0 0 100%;position:relative;margin:0}
+    .slide img{width:100%;height:420px;object-fit:cover;display:block}
+    .slider-control{position:absolute;top:50%;transform:translateY(-50%);border:none;background:rgba(255,255,255,.82);color:#2f343a;width:42px;height:42px;border-radius:50%;box-shadow:0 8px 18px rgba(31,35,40,.14);display:grid;place-items:center;font-size:1.5rem;font-family:inherit;cursor:pointer;transition:background .25s ease,transform .25s ease}
+    .slider-control:hover{background:#fff;transform:translateY(-50%) scale(1.04)}
+    .slider-control:disabled{opacity:.4;cursor:default;box-shadow:none}
+    .slider-control.prev{left:16px}
+    .slider-control.next{right:16px}
+    @media(max-width:700px){
+      .slide img{height:320px}
+      .slider-control{width:38px;height:38px;font-size:1.35rem}
+    }
 
     .form-embed{margin-top:32px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
-    .form-embed iframe{display:block;width:100%;height:720px;border:0}
-    @media(max-width:700px){.form-embed iframe{height:860px}}
+    .form-embed iframe{display:block;width:100%;height:1120px;border:0}
+    @media(max-width:700px){.form-embed iframe{height:1240px}}
 
     /* Subtle section divider like Squarespace */
     main > section:not(:first-child){border-top:1px solid var(--line)}
-    main > section > h2{position:relative;padding-top:26px}
-    main > section > h2::after{content:"";display:block;width:56px;height:2px;background:var(--accent);margin:.6rem 0 1rem}
-    @media(max-width:900px){main > section > h2::after{margin:.6rem auto 1rem}}
+    #ricordi{border-top:1px solid var(--line)}
+    main > section > h2,#ricordi h2{position:relative;padding-top:26px}
+    main > section > h2::after,#ricordi h2::after{content:"";display:block;width:56px;height:2px;background:var(--accent);margin:.6rem 0 1rem}
+    @media(max-width:900px){main > section > h2::after,#ricordi h2::after{margin:.6rem auto 1rem}}
 
-    /* Header */
-    header{position:fixed;inset:0 0 auto 0;height:70px;display:flex;align-items:center;justify-content:flex-end;padding:0 40px;background:transparent;transition:color .35s;z-index:10;color:#fff}
-    header.scrolled{color:#1f2328}
-    header nav{display:flex;gap:16px}
-    header nav a{color:inherit;font-weight:500;text-decoration:none;position:relative;padding:6px 2px}
-    header nav a::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:currentColor;transition:width .25s ease}
-    header nav a:hover::after{width:100%}
-    @media(max-width:700px){header nav{display:none}}
+    #ricordi .slider{margin-top:36px}
 
     /* Hero */
     .hero{min-height:90vh;display:grid;place-items:center;text-align:center;background:url('assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22%20(2).jpeg') center/cover no-repeat;color:#fff;position:relative}
@@ -84,16 +90,6 @@
   </style>
 </head>
 <body>
-  <header id="header">
-    <nav>
-      <a href="#cerimonia">Cerimonia</a>
-      <a href="#ricevimento">Ricevimento</a>
-      <a href="#parcheggi">Parcheggi</a>
-      <a href="#regalo">Regalo</a>
-      <a href="#rsvp">RSVP</a>
-    </nav>
-  </header>
-
   <section class="hero">
     <div class="hero-content">
       <h1>Susi & Tommi</h1>
@@ -143,7 +139,7 @@
           <p>Se volete farci un regalo, un contributo per il nostro viaggio di nozze:</p>
           <p><span class="pill">IBAN</span><br><strong id="iban">IT27H0310432380000000400112</strong></p>
           <button class="btn" id="copy">Copia IBAN</button>
-          <p style="margin-top:10px">Intestatari: <strong>Susi & Tommi</strong><br><small>Causale: “Viaggio di nozze Susi e Tommi”</small></p>
+          <p style="margin-top:10px">Intestatario: <strong>Susanna Trezzi</strong><br><small>Causale: “Regalo Susi e Tommi”</small></p>
         </div>
       </div>
       <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(5).jpeg" alt="Viaggio di nozze">
@@ -153,20 +149,39 @@
       <h2>RSVP</h2>
       <p class="lead">Confermate la vostra presenza compilando il modulo qui sotto. Ci aiuterà a organizzare al meglio la giornata.</p>
       <div class="form-embed">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRLnLRfipXUzWAjpSJEHHha1O2i_3LIrIWUIe0bDjMalUGXA/viewform?embedded=true" width="640" height="1118" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRLnLRfipXUzWAjpSJEHHha1O2i_3LIrIWUIe0bDjMalUGXA/viewform?embedded=true" title="Modulo di conferma presenze" loading="lazy">Caricamento…</iframe>
       </div>
     </section>
 
-    <section id="ricordi">
-      <div class="gallery-grid">
-        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.20.jpeg" alt="Coppia in primo piano" class="warm-filter">
-        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(2).jpeg" alt="Dettaglio floreale" class="warm-filter">
-        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(4).jpeg" alt="Momento di festa" class="warm-filter">
-        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22.jpeg" alt="Brindisi" class="warm-filter">
-        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22%20(1).jpeg" alt="Allestimento romantico" class="warm-filter">
-      </div>
-    </section>
   </main>
+
+  <section id="ricordi">
+    <div class="container">
+      <div class="slider" data-slider>
+        <button class="slider-control prev" type="button" data-slider-prev aria-label="Foto precedente">&#10094;</button>
+        <div class="slider-window">
+          <div class="slider-track" data-slider-track>
+            <figure class="slide">
+              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.20.jpeg" alt="Coppia in primo piano" class="warm-filter">
+            </figure>
+            <figure class="slide">
+              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(2).jpeg" alt="Dettaglio floreale" class="warm-filter">
+            </figure>
+            <figure class="slide">
+              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(4).jpeg" alt="Momento di festa" class="warm-filter">
+            </figure>
+            <figure class="slide">
+              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22.jpeg" alt="Brindisi" class="warm-filter">
+            </figure>
+            <figure class="slide">
+              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22%20(1).jpeg" alt="Allestimento romantico" class="warm-filter">
+            </figure>
+          </div>
+        </div>
+        <button class="slider-control next" type="button" data-slider-next aria-label="Foto successiva">&#10095;</button>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <p>© 2026 Susi & Tommi — Grazie ♥</p>
@@ -178,11 +193,39 @@
       try{await navigator.clipboard.writeText(iban);alert('IBAN copiato!');}catch{alert('Copia non riuscita, seleziona e copia manualmente.');}
     });
 
-    // Cambia colore del testo header su scroll
-    const header=document.getElementById('header');
-    window.addEventListener('scroll',()=>{
-      if(window.scrollY>100){header.classList.add('scrolled');}
-      else{header.classList.remove('scrolled');}
+    // Slider sezione Ricordi
+    document.querySelectorAll('[data-slider]').forEach(slider=>{
+      const track=slider.querySelector('[data-slider-track]');
+      const prev=slider.querySelector('[data-slider-prev]');
+      const next=slider.querySelector('[data-slider-next]');
+      const slides=Array.from(track.children);
+      let index=0;
+
+      const update=()=>{
+        track.style.transform=`translateX(-${index*100}%)`;
+        if(prev) prev.disabled=index===0;
+        if(next) next.disabled=index===slides.length-1;
+      };
+
+      if(prev){
+        prev.addEventListener('click',()=>{
+          if(index>0){
+            index--;
+            update();
+          }
+        });
+      }
+
+      if(next){
+        next.addEventListener('click',()=>{
+          if(index<slides.length-1){
+            index++;
+            update();
+          }
+        });
+      }
+
+      update();
     });
 
     // Slider sezione Ricordi
