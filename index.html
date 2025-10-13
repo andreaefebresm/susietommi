@@ -35,24 +35,12 @@
     @media(max-width:1100px){.map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:700px){.map-grid{grid-template-columns:1fr}}
 
-    .slider{position:relative;margin-top:36px}
-    .slider-window{overflow:hidden;border-radius:var(--r-lg);box-shadow:var(--shadow)}
-    .slider-track{display:flex;transition:transform .45s ease;will-change:transform}
-    .slide{flex:0 0 100%;position:relative;margin:0}
-    .slide img{width:100%;height:420px;object-fit:cover;display:block}
-    .slider-control{position:absolute;top:50%;transform:translateY(-50%);border:none;background:rgba(255,255,255,.82);color:#2f343a;width:42px;height:42px;border-radius:50%;box-shadow:0 8px 18px rgba(31,35,40,.14);display:grid;place-items:center;font-size:1.5rem;font-family:inherit;cursor:pointer;transition:background .25s ease,transform .25s ease}
-    .slider-control:hover{background:#fff;transform:translateY(-50%) scale(1.04)}
-    .slider-control:disabled{opacity:.4;cursor:default;box-shadow:none}
-    .slider-control.prev{left:16px}
-    .slider-control.next{right:16px}
-    @media(max-width:700px){
-      .slide img{height:320px}
-      .slider-control{width:38px;height:38px;font-size:1.35rem}
-    }
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:36px}
+    .gallery-grid img{height:280px;width:100%;object-fit:cover;box-shadow:var(--shadow)}
 
     .form-embed{margin-top:32px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
-    .form-embed iframe{display:block;width:100%;height:1120px;border:0}
-    @media(max-width:700px){.form-embed iframe{height:1240px}}
+    .form-embed iframe{display:block;width:100%;height:720px;border:0}
+    @media(max-width:700px){.form-embed iframe{height:860px}}
 
     /* Subtle section divider like Squarespace */
     main > section:not(:first-child){border-top:1px solid var(--line)}
@@ -166,35 +154,19 @@
       <h2>RSVP</h2>
       <p class="lead">Confermate la vostra presenza compilando il modulo qui sotto. Ci aiuterà a organizzare al meglio la giornata.</p>
       <div class="form-embed">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRLnLRfipXUzWAjpSJEHHha1O2i_3LIrIWUIe0bDjMalUGXA/viewform?embedded=true" title="Modulo di conferma presenze" loading="lazy">Caricamento…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRLnLRfipXUzWAjpSJEHHha1O2i_3LIrIWUIe0bDjMalUGXA/viewform?embedded=true" width="640" height="1118" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
     </section>
 
     <section id="ricordi">
       <h2>Ricordi</h2>
       <p class="lead">Alcuni scatti per entrare nell'atmosfera della giornata.</p>
-      <div class="slider" data-slider>
-        <button class="slider-control prev" type="button" data-slider-prev aria-label="Foto precedente">&#10094;</button>
-        <div class="slider-window">
-          <div class="slider-track" data-slider-track>
-            <figure class="slide">
-              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.20.jpeg" alt="Coppia in primo piano" class="warm-filter">
-            </figure>
-            <figure class="slide">
-              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(2).jpeg" alt="Dettaglio floreale" class="warm-filter">
-            </figure>
-            <figure class="slide">
-              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(4).jpeg" alt="Momento di festa" class="warm-filter">
-            </figure>
-            <figure class="slide">
-              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22.jpeg" alt="Brindisi" class="warm-filter">
-            </figure>
-            <figure class="slide">
-              <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22%20(1).jpeg" alt="Allestimento romantico" class="warm-filter">
-            </figure>
-          </div>
-        </div>
-        <button class="slider-control next" type="button" data-slider-next aria-label="Foto successiva">&#10095;</button>
+      <div class="gallery-grid">
+        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.20.jpeg" alt="Coppia in primo piano" class="warm-filter">
+        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(2).jpeg" alt="Dettaglio floreale" class="warm-filter">
+        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.21%20(4).jpeg" alt="Momento di festa" class="warm-filter">
+        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22.jpeg" alt="Brindisi" class="warm-filter">
+        <img src="assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22%20(1).jpeg" alt="Allestimento romantico" class="warm-filter">
       </div>
     </section>
   </main>
