@@ -55,6 +55,7 @@
     header nav a{color:inherit;font-weight:500;text-decoration:none;position:relative;padding:6px 2px}
     header nav a::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:currentColor;transition:width .25s ease}
     header nav a:hover::after{width:100%}
+    @media(max-width:700px){header nav{display:none}}
 
     /* Hero */
     .hero{min-height:90vh;display:grid;place-items:center;text-align:center;background:url('assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22%20(2).jpeg') center/cover no-repeat;color:#fff;position:relative}
@@ -139,7 +140,7 @@
       <div>
         <h2>Regalo</h2>
         <div class="card">
-          <p>Il vostro affetto è per noi il dono più grande. Se desiderate contribuire al nostro sogno, useremo il vostro pensiero per il <strong>viaggio di nozze</strong>.</p>
+          <p>Se volete farci un regalo, un contributo per il nostro viaggio di nozze:</p>
           <p><span class="pill">IBAN</span><br><strong id="iban">IT27H0310432380000000400112</strong></p>
           <button class="btn" id="copy">Copia IBAN</button>
           <p style="margin-top:10px">Intestatari: <strong>Susi & Tommi</strong><br><small>Causale: “Viaggio di nozze Susi e Tommi”</small></p>
@@ -182,6 +183,41 @@
     window.addEventListener('scroll',()=>{
       if(window.scrollY>100){header.classList.add('scrolled');}
       else{header.classList.remove('scrolled');}
+    });
+
+    // Slider sezione Ricordi
+    document.querySelectorAll('[data-slider]').forEach(slider=>{
+      const track=slider.querySelector('[data-slider-track]');
+      const prev=slider.querySelector('[data-slider-prev]');
+      const next=slider.querySelector('[data-slider-next]');
+      const slides=Array.from(track.children);
+      let index=0;
+
+      const update=()=>{
+        track.style.transform=`translateX(-${index*100}%)`;
+        if(prev) prev.disabled=index===0;
+        if(next) next.disabled=index===slides.length-1;
+      };
+
+      if(prev){
+        prev.addEventListener('click',()=>{
+          if(index>0){
+            index--;
+            update();
+          }
+        });
+      }
+
+      if(next){
+        next.addEventListener('click',()=>{
+          if(index<slides.length-1){
+            index++;
+            update();
+          }
+        });
+      }
+
+      update();
     });
   </script>
 </body>
