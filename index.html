@@ -39,20 +39,20 @@
     .slider-window{overflow:hidden;border-radius:var(--r-lg);box-shadow:var(--shadow)}
     .slider-track{display:flex;transition:transform .45s ease;will-change:transform}
     .slide{flex:0 0 100%;position:relative;margin:0}
-    .slide img{width:100%;height:420px;object-fit:cover;display:block}
-    .slider-control{position:absolute;top:50%;transform:translateY(-50%);border:none;background:rgba(255,255,255,.82);color:#2f343a;width:42px;height:42px;border-radius:50%;box-shadow:0 8px 18px rgba(31,35,40,.14);display:grid;place-items:center;font-size:1.5rem;font-family:inherit;cursor:pointer;transition:background .25s ease,transform .25s ease}
-    .slider-control:hover{background:#fff;transform:translateY(-50%) scale(1.04)}
-    .slider-control:disabled{opacity:.4;cursor:default;box-shadow:none}
+    .slide img{width:100%;height:520px;object-fit:cover;display:block}
+    .slider-control{position:absolute;top:50%;transform:translateY(-50%);border:none;background:rgba(255,255,255,.88);color:#2f343a;width:46px;height:46px;border-radius:50%;box-shadow:0 10px 24px rgba(31,35,40,.16);display:grid;place-items:center;font-size:1.55rem;font-family:inherit;cursor:pointer;transition:background .25s ease,transform .25s ease;z-index:2}
+    .slider-control:hover{background:#fff;transform:translateY(-50%) scale(1.05)}
     .slider-control.prev{left:16px}
     .slider-control.next{right:16px}
     @media(max-width:700px){
-      .slide img{height:320px}
-      .slider-control{width:38px;height:38px;font-size:1.35rem}
+      .slide img{height:400px}
+      .slider-control{width:40px;height:40px;font-size:1.4rem}
     }
 
     .form-embed{margin-top:32px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
-    .form-embed iframe{display:block;width:100%;height:1120px;border:0}
-    @media(max-width:700px){.form-embed iframe{height:1240px}}
+    .form-embed iframe{display:block;width:100%;height:1500px;border:0}
+    @media(max-width:900px){.form-embed iframe{height:1600px}}
+    @media(max-width:700px){.form-embed iframe{height:1780px}}
 
     /* Subtle section divider like Squarespace */
     main > section:not(:first-child){border-top:1px solid var(--line)}
@@ -203,43 +203,6 @@
 
       const update=()=>{
         track.style.transform=`translateX(-${index*100}%)`;
-        if(prev) prev.disabled=index===0;
-        if(next) next.disabled=index===slides.length-1;
-      };
-
-      if(prev){
-        prev.addEventListener('click',()=>{
-          if(index>0){
-            index--;
-            update();
-          }
-        });
-      }
-
-      if(next){
-        next.addEventListener('click',()=>{
-          if(index<slides.length-1){
-            index++;
-            update();
-          }
-        });
-      }
-
-      update();
-    });
-
-    // Slider sezione Ricordi
-    document.querySelectorAll('[data-slider]').forEach(slider=>{
-      const track=slider.querySelector('[data-slider-track]');
-      const prev=slider.querySelector('[data-slider-prev]');
-      const next=slider.querySelector('[data-slider-next]');
-      const slides=Array.from(track.children);
-      let index=0;
-
-      const update=()=>{
-        track.style.transform=`translateX(-${index*100}%)`;
-        if(prev) prev.disabled=index===0;
-        if(next) next.disabled=index===slides.length-1;
       };
 
       if(prev){
