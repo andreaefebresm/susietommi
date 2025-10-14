@@ -65,6 +65,9 @@
 
     /* Hero */
     .hero{min-height:90vh;display:grid;place-items:center;text-align:center;background:url('assets/WhatsApp%20Image%202025-09-18%20at%2012.12.22%20(2).jpeg') center/cover no-repeat;color:#fff;position:relative}
+    @media(max-width:700px){
+      .hero{background-position:70% center}
+    }
     .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}
     .hero-content{position:relative;z-index:1}
     .hero .date{font-size:1.05rem;color:#f3f5f2;margin-top:.5rem}
@@ -157,6 +160,8 @@
 
   <section id="ricordi">
     <div class="container">
+      <h2>Ricordi</h2>
+      <p class="lead">Alcuni scatti per entrare nell'atmosfera della giornata.</p>
       <div class="slider" data-slider>
         <button class="slider-control prev" type="button" data-slider-prev aria-label="Foto precedente">&#10094;</button>
         <div class="slider-window">
