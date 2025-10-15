@@ -49,10 +49,9 @@
       .slider-control{width:40px;height:40px;font-size:1.4rem}
     }
 
-    .form-embed{margin-top:32px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
-    .form-embed iframe{display:block;width:100%;height:1500px;border:0}
-    @media(max-width:900px){.form-embed iframe{height:1600px}}
-    @media(max-width:700px){.form-embed iframe{height:1780px}}
+    .form-embed{margin-top:32px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;display:grid}
+    .form-embed iframe{display:block;width:100%;height:clamp(900px,110vw,1600px);border:0}
+    @media(max-width:700px){.form-embed iframe{height:clamp(960px,130vh,1500px)}}
 
     /* Subtle section divider like Squarespace */
     main > section:not(:first-child){border-top:1px solid var(--line)}
