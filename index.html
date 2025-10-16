@@ -49,9 +49,9 @@
       .slider-control{width:40px;height:40px;font-size:1.4rem}
     }
 
-    .form-embed{margin-top:32px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;display:grid}
-    .form-embed iframe{display:block;width:100%;height:clamp(900px,110vw,1600px);border:0}
-    @media(max-width:700px){.form-embed iframe{height:clamp(960px,130vh,1500px)}}
+    .form-embed{margin-top:32px;display:flex;justify-content:flex-start}
+    .form-embed .form-button{display:inline-flex;align-items:center;gap:.35rem;padding:16px 26px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#2f343a;font-weight:600;letter-spacing:.02em;text-decoration:none;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease}
+    .form-embed .form-button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(31,35,40,.12)}
 
     /* Subtle section divider like Squarespace */
     main > section:not(:first-child){border-top:1px solid var(--line)}
@@ -149,9 +149,9 @@
 
     <section id="rsvp">
       <h2>RSVP</h2>
-      <p class="lead">Confermate la vostra presenza compilando il modulo qui sotto. Ci aiuterà a organizzare al meglio la giornata.</p>
+      <p class="lead">Confermate la vostra presenza compilando il modulo tramite il pulsante qui sotto. Ci aiuterà a organizzare al meglio la giornata.</p>
       <div class="form-embed">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRLnLRfipXUzWAjpSJEHHha1O2i_3LIrIWUIe0bDjMalUGXA/viewform?embedded=true" title="Modulo di conferma presenze" loading="lazy">Caricamento…</iframe>
+        <a class="form-button" href="https://forms.gle/gDyBLGj6sGD6Wj4j8" target="_blank" rel="noopener">compila il form</a>
       </div>
     </section>
 
